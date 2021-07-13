@@ -50,3 +50,16 @@ console.log(results[0]);
 console.log(results[1]);
 console.log(results[2]);
 }).catch(() => console.log('error'));
+
+/* ASYNC AWAIT */
+//Not clean
+fetch('https://jsonplaceholder.typicode.com/users')
+.then(resp => resp.jason())
+.then(console.log());
+
+//Pretty much better
+async function fetchUsers() {
+    const resp = await fetch('https://jsonplaceholder.typicode.com/users')
+    const data = await resp.jason();
+    console.log(data);
+}
